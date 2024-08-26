@@ -1,0 +1,180 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="散人"><meta name="copyright" content="散人"><meta name="generator" content="Hexo 7.3.0"><meta name="theme" content="hexo-theme-yun"><title>Linux运维常用命令 | 忘情记事￡Hexo</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/star-markdown-css@0.4.1/dist/yun/yun-markdown.min.css"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/prism-theme-vars/base.css"><script src="https://fastly.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".markdown-body img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link rel="icon" type="image/png" href="/favicon.ico"><link rel="mask-icon" href="/favicon.ico" color="#0078E7"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://fastly.jsdelivr.net/npm/" crossorigin><script id="yun-config">
+    window.Yun = {}
+    window.CONFIG = {"hostname":"example.com","root":"/","title":"忘情并未是无情","version":"1.10.11","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.yunyoujun.cn/img/avatar/none.jpg","say":{"api":"https://el-bot-api.vercel.app/api/words/young"},"fireworks":{"colors":null},"vendors":{"host":"https://fastly.jsdelivr.net/npm/","darken":"https://fastly.jsdelivr.net/npm/darken@1.5.0"}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/hexo-theme-yun.js" type="module"></script><meta name="description" content="以下是一些 Linux 运维常用命令：一、文件和目录操作命令  ls：列出目录内容。 例如：ls -l以详细列表形式显示，ls -a显示包括隐藏文件在内的所有文件。   cd：切换目录。 如cd &#x2F;home&#x2F;user切换到&#x2F;home&#x2F;user 目录。   pwd：显示当前工作目录路径。 mkdir：创建目录。 mkdir newdir创建名为 newdir 的目录。   rmd">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux运维常用命令">
+<meta property="og:url" content="http://example.com/2024/08/26/Linux%E8%BF%90%E7%BB%B4%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="忘情记事￡Hexo">
+<meta property="og:description" content="以下是一些 Linux 运维常用命令：一、文件和目录操作命令  ls：列出目录内容。 例如：ls -l以详细列表形式显示，ls -a显示包括隐藏文件在内的所有文件。   cd：切换目录。 如cd &#x2F;home&#x2F;user切换到&#x2F;home&#x2F;user 目录。   pwd：显示当前工作目录路径。 mkdir：创建目录。 mkdir newdir创建名为 newdir 的目录。   rmd">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-08-26T15:40:35.000Z">
+<meta property="article:modified_time" content="2024-08-26T15:42:06.076Z">
+<meta property="article:author" content="散人">
+<meta property="article:tag" content="忘情">
+<meta name="twitter:card" content="summary"><script>(function() {
+  if (CONFIG.mode !== 'auto') return
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  const setting = localStorage.getItem('darken-mode') || 'auto'
+  if (setting === 'dark' || (prefersDark && setting !== 'light'))
+    document.documentElement.classList.toggle('dark', true)
+})()</script></head><body><script src="https://code.iconify.design/2/2.1.1/iconify.min.js"></script><script>// Define global variable
+IconifyProviders = {
+  // Empty prefix: overwrite default API provider configuration
+  '': {
+    // Use custom API first, use Iconify public API as backup
+    resources: [
+        'https://api.iconify.design',
+    ],
+    // Wait for 1 second before switching API hosts
+    rotate: 1000,
+  },
+};</script><script defer src="https://fastly.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><span class="icon iconify" data-icon="ri:list-ordered"></span></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><span class="icon iconify" data-icon="ri:passport-line"></span></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="散人"><img width="96" loading="lazy" src="/images/avatar.png" alt="散人"><span class="site-author-status" title="四季花开">☺️</span></a><div class="site-author-name"><a href="/about/">散人</a></div><span class="site-name">忘情记事￡Hexo</span><sub class="site-subtitle">一位失落青年的自述</sub><div class="site-description">忘情不是忘情</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:home-4-line"></span></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:archive-line"></span></span><span class="site-state-item-count">5</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:folder-2-line"></span></span><span class="site-state-item-count">0</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="site-state-item-count">0</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://yun.yunyoujun.cn" title="文档"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:settings-line"></span></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="/atom.xml" title="RSS" target="_blank" style="color:orange"><span class="icon iconify" data-icon="ri:rss-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/yemenghexo" title="GitHub" target="_blank" style="color:#181717"><span class="icon iconify" data-icon="ri:github-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:admin@yemengstar.com" title="E-Mail" target="_blank" style="color:#8E71C1"><span class="icon iconify" data-icon="ri:mail-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://music.163.com/#/user/home?id=1485292158" title="网易云音乐" target="_blank" style="color:#C10D0C"><span class="icon iconify" data-icon="ri:netease-cloud-music-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://www.zhihu.com/people/yemengstar" title="知乎" target="_blank" style="color:#0084FF"><span class="icon iconify" data-icon="ri:zhihu-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/1951763981" title="哔哩哔哩" target="_blank" style="color:#FF8EB3"><span class="icon iconify" data-icon="ri:bilibili-line"></span></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><span class="icon iconify" data-icon="ri:genderless-line"></span></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><span class="icon iconify" data-icon="ri:contrast-2-line"></span></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A5%E4%B8%8B%E6%98%AF%E4%B8%80%E4%BA%9B-Linux-%E8%BF%90%E7%BB%B4%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">以下是一些 Linux 运维常用命令：</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#0078E7;"><link itemprop="mainEntityOfPage" href="http://example.com/2024/08/26/Linux%E8%BF%90%E7%BB%B4%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="散人"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="忘情记事￡Hexo"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">Linux运维常用命令</h1><div class="post-meta"><div class="post-time"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-line"></span></span> <time title="创建时间：2024-08-26 23:40:35" itemprop="dateCreated datePublished" datetime="2024-08-26T23:40:35+08:00">2024-08-26</time></div><div class="post-classify"></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><h3 id="以下是一些-Linux-运维常用命令："><a href="#以下是一些-Linux-运维常用命令：" class="headerlink" title="以下是一些 Linux 运维常用命令："></a>以下是一些 Linux 运维常用命令：</h3><p><strong>一、文件和目录操作命令</strong></p>
+<ol>
+<li><code>ls</code>：列出目录内容。<ul>
+<li>例如：<code>ls -l</code>以详细列表形式显示，<code>ls -a</code>显示包括隐藏文件在内的所有文件。</li>
+</ul>
+</li>
+<li><code>cd</code>：切换目录。<ul>
+<li>如<code>cd /home/user</code>切换到&#x2F;home&#x2F;user 目录。</li>
+</ul>
+</li>
+<li><code>pwd</code>：显示当前工作目录路径。</li>
+<li><code>mkdir</code>：创建目录。<ul>
+<li><code>mkdir newdir</code>创建名为 newdir 的目录。</li>
+</ul>
+</li>
+<li><code>rmdir</code>：删除空目录。</li>
+<li><code>cp</code>：复制文件或目录。<ul>
+<li><code>cp file1 file2</code>将 file1 复制为 file2，<code>cp -r dir1 dir2</code>递归复制目录 dir1 为 dir2。</li>
+</ul>
+</li>
+<li><code>mv</code>：移动或重命名文件或目录。<ul>
+<li><code>mv file1 file2</code>将 file1 重命名为 file2，<code>mv file dir</code>将 file 移动到 dir 目录下。</li>
+</ul>
+</li>
+<li><code>rm</code>：删除文件或目录。<ul>
+<li><code>rm file</code>删除文件，<code>rm -r dir</code>递归删除目录。</li>
+</ul>
+</li>
+</ol>
+<p><strong>二、文件查看和编辑命令</strong></p>
+<ol>
+<li><code>cat</code>：查看文件内容并输出到标准输出。<ul>
+<li><code>cat file.txt</code>查看 file.txt 的内容。</li>
+</ul>
+</li>
+<li><code>more</code>和<code>less</code>：分页查看文件内容。<ul>
+<li><code>more file.txt</code>逐页显示 file.txt 的内容，可按空格键翻页。</li>
+<li><code>less file.txt</code>功能更强大，支持搜索、上下滚动等操作。</li>
+</ul>
+</li>
+<li><code>head</code>和<code>tail</code>：查看文件开头或结尾部分内容。<ul>
+<li><code>head -n 10 file.txt</code>查看 file.txt 的前 10 行内容。</li>
+<li><code>tail -f logfile.txt</code>实时查看 logfile.txt 的末尾内容，常用于查看日志文件。</li>
+</ul>
+</li>
+<li><code>vi</code>或<code>vim</code>：强大的文本编辑器。<ul>
+<li>可用于编辑各种文本文件，支持多种编辑模式和功能强大的命令集。</li>
+</ul>
+</li>
+</ol>
+<p><strong>三、系统信息和资源监控命令</strong></p>
+<ol>
+<li><code>top</code>：实时显示系统的进程和资源使用情况。<ul>
+<li>可以查看 CPU、内存、进程等信息，并可按特定键进行排序和操作。</li>
+</ul>
+</li>
+<li><code>free</code>：显示系统内存使用情况。<ul>
+<li><code>free -m</code>以 MB 为单位显示内存使用情况。</li>
+</ul>
+</li>
+<li><code>df</code>：查看磁盘空间使用情况。<ul>
+<li><code>df -h</code>以人类可读的格式显示磁盘空间大小和使用情况。</li>
+</ul>
+</li>
+<li><code>du</code>：查看目录或文件的磁盘使用情况。<ul>
+<li><code>du -sh dir</code>显示目录 dir 的总大小。</li>
+</ul>
+</li>
+<li><code>ps</code>：查看系统中的进程。<ul>
+<li><code>ps aux</code>显示所有进程的详细信息。</li>
+</ul>
+</li>
+<li><code>kill</code>：终止进程。<ul>
+<li><code>kill pid</code>根据进程 ID（pid）终止特定进程。</li>
+</ul>
+</li>
+</ol>
+<p><strong>四、网络相关命令</strong></p>
+<ol>
+<li><code>ping</code>：测试网络连接。<ul>
+<li><code>ping hostname</code>测试与主机 hostname 的网络连接。</li>
+</ul>
+</li>
+<li><code>traceroute</code>：跟踪网络数据包的路由路径。<ul>
+<li><code>traceroute hostname</code>显示到主机 hostname 的数据包经过的路由节点。</li>
+</ul>
+</li>
+<li><code>ifconfig</code>或<code>ip addr</code>：查看和配置网络接口。<ul>
+<li>可查看网络接口的 IP 地址、子网掩码等信息，也可进行网络接口的配置。</li>
+</ul>
+</li>
+<li><code>netstat</code>：查看网络连接状态和统计信息。<ul>
+<li><code>netstat -an</code>显示所有网络连接和监听端口。</li>
+</ul>
+</li>
+<li><code>ssh</code>：远程登录到其他主机。<ul>
+<li><code>ssh username@hostname</code>使用用户名 username 登录到主机 hostname。</li>
+</ul>
+</li>
+</ol>
+<p><strong>五、用户和权限管理命令</strong></p>
+<ol>
+<li><code>useradd</code>：添加用户。<ul>
+<li><code>useradd newuser</code>添加名为 newuser 的用户。</li>
+</ul>
+</li>
+<li><code>passwd</code>：设置用户密码。<ul>
+<li><code>passwd username</code>为用户 username 设置密码。</li>
+</ul>
+</li>
+<li><code>chown</code>：改变文件或目录的所有者。<ul>
+<li><code>chown user:group file</code>将文件 file 的所有者改为 user，所属组改为 group。</li>
+</ul>
+</li>
+<li><code>chmod</code>：改变文件或目录的权限。<ul>
+<li><code>chmod 755 file</code>设置文件 file 的权限为所有者可读、可写、可执行，所属组和其他用户可读、可执行。</li>
+</ul>
+</li>
+</ol>
+<p><strong>六、其他常用命令</strong></p>
+<ol>
+<li><code>grep</code>：在文件中搜索特定模式。<ul>
+<li><code>grep &quot;pattern&quot; file.txt</code>在 file.txt 中搜索包含模式“pattern”的行。</li>
+</ul>
+</li>
+<li><code>find</code>：在文件系统中查找文件。<ul>
+<li><code>find /path -name &quot;filename&quot;</code>在&#x2F;path 目录下查找名为 filename 的文件。</li>
+</ul>
+</li>
+<li><code>tar</code>：打包和压缩文件。<ul>
+<li><code>tar -cvf archive.tar files</code>将多个文件打包为 archive.tar，<code>tar -zcvf archive.tar.gz files</code>将文件打包并使用 gzip 压缩为 archive.tar.gz。</li>
+</ul>
+</li>
+<li><code>scp</code>：在不同主机之间复制文件。<ul>
+<li><code>scp file username@hostname:/path</code>将本地文件 file 复制到主机 hostname 的&#x2F;path 目录下。</li>
+</ul>
+</li>
+</ol>
+</div></section><div id="reward-container"><span class="hty-icon-button button-glow" id="reward-button" title="打赏" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === &quot;none&quot;) ? &quot;block&quot; : &quot;none&quot;;"><span class="icon iconify" data-icon="ri:hand-coin-line"></span></span><div id="reward-comment">I'm so cute. Please give me money.</div></div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>散人</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="http://example.com/2024/08/26/Linux%E8%BF%90%E7%BB%B4%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="Linux运维常用命令">http://example.com/2024/08/26/Linux%E8%BF%90%E7%BB%B4%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><span class="icon iconify" data-icon="ri:creative-commons-line"></span><span class="icon iconify" data-icon="ri:creative-commons-by-line"></span><span class="icon iconify" data-icon="ri:creative-commons-nc-line"></span><span class="icon iconify" data-icon="ri:creative-commons-sa-line"></span></a> 许可协议。</li></ul></article><div class="post-nav"><div class="post-nav-item"></div><div class="post-nav-item"><a class="post-nav-next" href="/2024/08/26/%E9%9D%A2%E8%AF%95%E6%8A%80%E8%83%BD%E9%9C%80%E6%B1%82%E7%82%B9/" rel="next" title="面试技能需求点"><span class="post-nav-text">面试技能需求点</span><span class="icon iconify" data-icon="ri:arrow-right-s-line"></span></a></div></div></div><div class="hty-card" id="comment"></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2019 – 2024 </span><span class="with-love" id="animate"><span class="icon iconify" data-icon="ri:cloud-line"></span></span><span class="author"> 散人</span></div><div class="powered"><span>由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v7.3.0</span><span class="footer-separator">|</span><span>主题 - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.10.11</span></div></footer></div><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><span class="icon iconify" data-icon="ri:arrow-up-s-line"></span><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><script src="https://fastly.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script><script>const images = [...document.querySelectorAll('.markdown-body img')]
+mediumZoom(images)</script><style>.medium-zoom-image {
+  z-index: 99;
+}</style></body></html>
