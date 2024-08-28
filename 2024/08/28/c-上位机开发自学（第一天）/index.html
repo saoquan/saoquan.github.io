@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="散人"><meta name="copyright" content="散人"><meta name="generator" content="Hexo 7.3.0"><meta name="theme" content="hexo-theme-yun"><title>c#上位机开发自学（c#基础认识第一天） | 忘情记事￡Hexo</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/star-markdown-css@0.4.1/dist/yun/yun-markdown.min.css"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/prism-theme-vars/base.css"><script src="https://fastly.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".markdown-body img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link rel="icon" type="image/png" href="/favicon.ico"><link rel="mask-icon" href="/favicon.ico" color="#0078E7"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://fastly.jsdelivr.net/npm/" crossorigin><script id="yun-config">
+    window.Yun = {}
+    window.CONFIG = {"hostname":"example.com","root":"/","title":"忘情并未是无情","version":"1.10.11","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.yunyoujun.cn/img/avatar/none.jpg","say":{"api":"https://el-bot-api.vercel.app/api/words/young"},"fireworks":{"colors":null},"vendors":{"host":"https://fastly.jsdelivr.net/npm/","darken":"https://fastly.jsdelivr.net/npm/darken@1.5.0"}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/hexo-theme-yun.js" type="module"></script><meta name="description" content="C#编程语言介绍C# 语言是适用于 .NET 平台（免费的跨平台开源开发环境）的最流行语言。 C# 程序可以在许多不同的设备上运行，从物联网 (IoT) 设备到云以及介于两者之间的任何设备。 可为手机、台式机、笔记本电脑和服务器编写应用。 C# 是一种跨平台的通用语言，可以让开发人员在编写高性能代码时提高工作效率。 C# 是数百万开发人员中最受欢迎的 .NET 语言。 C# 在生态系统和所有 .N">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c#上位机开发自学（c#基础认识第一天）">
+<meta property="og:url" content="http://example.com/2024/08/28/c-%E4%B8%8A%E4%BD%8D%E6%9C%BA%E5%BC%80%E5%8F%91%E8%87%AA%E5%AD%A6%EF%BC%88%E7%AC%AC%E4%B8%80%E5%A4%A9%EF%BC%89/index.html">
+<meta property="og:site_name" content="忘情记事￡Hexo">
+<meta property="og:description" content="C#编程语言介绍C# 语言是适用于 .NET 平台（免费的跨平台开源开发环境）的最流行语言。 C# 程序可以在许多不同的设备上运行，从物联网 (IoT) 设备到云以及介于两者之间的任何设备。 可为手机、台式机、笔记本电脑和服务器编写应用。 C# 是一种跨平台的通用语言，可以让开发人员在编写高性能代码时提高工作效率。 C# 是数百万开发人员中最受欢迎的 .NET 语言。 C# 在生态系统和所有 .N">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-08-28T15:46:37.000Z">
+<meta property="article:modified_time" content="2024-08-28T16:17:05.540Z">
+<meta property="article:author" content="散人">
+<meta property="article:tag" content="忘情">
+<meta name="twitter:card" content="summary"><script>(function() {
+  if (CONFIG.mode !== 'auto') return
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  const setting = localStorage.getItem('darken-mode') || 'auto'
+  if (setting === 'dark' || (prefersDark && setting !== 'light'))
+    document.documentElement.classList.toggle('dark', true)
+})()</script></head><body><script src="https://code.iconify.design/2/2.1.1/iconify.min.js"></script><script>// Define global variable
+IconifyProviders = {
+  // Empty prefix: overwrite default API provider configuration
+  '': {
+    // Use custom API first, use Iconify public API as backup
+    resources: [
+        'https://api.iconify.design',
+    ],
+    // Wait for 1 second before switching API hosts
+    rotate: 1000,
+  },
+};</script><script defer src="https://fastly.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><span class="icon iconify" data-icon="ri:list-ordered"></span></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><span class="icon iconify" data-icon="ri:passport-line"></span></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="散人"><img width="96" loading="lazy" src="/images/avatar.png" alt="散人"><span class="site-author-status" title="四季花开">☺️</span></a><div class="site-author-name"><a href="/about/">散人</a></div><span class="site-name">忘情记事￡Hexo</span><sub class="site-subtitle">一位失落青年的自述</sub><div class="site-description">忘情不是忘情</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:home-4-line"></span></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:archive-line"></span></span><span class="site-state-item-count">6</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:folder-2-line"></span></span><span class="site-state-item-count">0</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="site-state-item-count">0</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://yun.yunyoujun.cn" title="文档"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:settings-line"></span></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/saoquan" title="GitHub" target="_blank" style="color:#181717"><span class="icon iconify" data-icon="ri:github-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://music.163.com/#/user/home?id=1605594562" title="网易云音乐" target="_blank" style="color:#C10D0C"><span class="icon iconify" data-icon="ri:netease-cloud-music-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://www.zhihu.com/people/leng-gong-zi-15-72" title="知乎" target="_blank" style="color:#0084FF"><span class="icon iconify" data-icon="ri:zhihu-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/384507934?spm_id_from=333.999.0.0" title="哔哩哔哩" target="_blank" style="color:#FF8EB3"><span class="icon iconify" data-icon="ri:bilibili-line"></span></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><span class="icon iconify" data-icon="ri:genderless-line"></span></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><span class="icon iconify" data-icon="ri:contrast-2-line"></span></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">C#编程语言介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">C#数据类型</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#0078E7;"><link itemprop="mainEntityOfPage" href="http://example.com/2024/08/28/c-%E4%B8%8A%E4%BD%8D%E6%9C%BA%E5%BC%80%E5%8F%91%E8%87%AA%E5%AD%A6%EF%BC%88%E7%AC%AC%E4%B8%80%E5%A4%A9%EF%BC%89/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="散人"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="忘情记事￡Hexo"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">c#上位机开发自学（c#基础认识第一天）</h1><div class="post-meta"><div class="post-time"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-line"></span></span> <time title="创建时间：2024-08-28 23:46:37" itemprop="dateCreated datePublished" datetime="2024-08-28T23:46:37+08:00">2024-08-28</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-2-line"></span></span> <time title="修改时间：2024-08-29 00:17:05" itemprop="dateModified" datetime="2024-08-29T00:17:05+08:00">2024-08-29</time></div><div class="post-classify"></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><h2 id="C-编程语言介绍"><a href="#C-编程语言介绍" class="headerlink" title="C#编程语言介绍"></a>C#编程语言介绍</h2><p>C# 语言是适用于 .NET 平台（免费的跨平台开源开发环境）的最流行语言。 C# 程序可以在许多不同的设备上运行，从物联网 (IoT) 设备到云以及介于两者之间的任何设备。 可为手机、台式机、笔记本电脑和服务器编写应用。</p>
+<p>C# 是一种跨平台的通用语言，可以让开发人员在编写高性能代码时提高工作效率。 C# 是数百万开发人员中最受欢迎的 .NET 语言。 C# 在生态系统和所有 .NET 工作负载中具有广泛的支持。 基于面向对象的原则，它融合了其他范例中的许多功能，尤其是函数编程。 低级功能支持高效方案，无需编写不安全的代码。 大多数 .NET 运行时和库都是用 C# 编写的，C# 的进步通常会使所有 .NET 开发人员受益。</p>
+<h2 id="C-数据类型"><a href="#C-数据类型" class="headerlink" title="C#数据类型"></a>C#数据类型</h2><p>在 C#中，数据类型主要分为以下两类：</p>
+<p><strong>一、值类型</strong></p>
+<ol>
+<li><p>简单类型：</p>
+<ul>
+<li><strong>整数类型</strong>：<ul>
+<li><code>byte</code>：无符号 8 位整数，取值范围是 0 到 255。</li>
+<li><code>sbyte</code>：有符号 8 位整数，取值范围是 -128 到 127。</li>
+<li><code>short</code>：有符号 16 位整数，取值范围是 -32768 到 32767。</li>
+<li><code>ushort</code>：无符号 16 位整数，取值范围是 0 到 65535。</li>
+<li><code>int</code>：有符号 32 位整数，取值范围是 -2147483648 到 2147483647。</li>
+<li><code>uint</code>：无符号 32 位整数，取值范围是 0 到 4294967295。</li>
+<li><code>long</code>：有符号 64 位整数，取值范围是 -9223372036854775808 到 9223372036854775807。</li>
+<li><code>ulong</code>：无符号 64 位整数，取值范围是 0 到 18446744073709551615。</li>
+</ul>
+</li>
+<li><strong>浮点类型</strong>：<ul>
+<li><code>float</code>：单精度 32 位浮点数。</li>
+<li><code>double</code>：双精度 64 位浮点数。</li>
+</ul>
+</li>
+<li><strong>decimal 类型</strong>：128 位高精度十进制数，常用于金融和货币计算。</li>
+<li><strong>布尔类型</strong>：<code>bool</code>，只有两个值，<code>true</code>和<code>false</code>。</li>
+<li><strong>字符类型</strong>：<code>char</code>，表示一个 16 位的 Unicode 字符。</li>
+</ul>
+</li>
+<li><p>枚举类型：是一组命名的常量值，它可以提高代码的可读性和可维护性。</p>
+</li>
+<li><p>结构类型：可以包含多个不同数据类型的字段，是值类型的一种复合类型。</p>
+</li>
+</ol>
+<p><strong>二、引用类型</strong></p>
+<ol>
+<li>类类型：由用户自定义或使用 C#提供的类，如<code>string</code>类、<code>Object</code>类等。</li>
+<li>接口类型：定义了一组方法和属性的契约，类和结构可以实现接口。</li>
+<li>数组类型：用于存储相同类型的多个元素。</li>
+<li>委托类型：委托是一种类型安全的函数指针，可以指向一个或多个方法。</li>
+</ol>
+</div></section><div id="reward-container"><span class="hty-icon-button button-glow" id="reward-button" title="打赏" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === &quot;none&quot;) ? &quot;block&quot; : &quot;none&quot;;"><span class="icon iconify" data-icon="ri:hand-coin-line"></span></span><div id="reward-comment">I'm so cute. Please give me money.</div></div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>散人</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="http://example.com/2024/08/28/c-%E4%B8%8A%E4%BD%8D%E6%9C%BA%E5%BC%80%E5%8F%91%E8%87%AA%E5%AD%A6%EF%BC%88%E7%AC%AC%E4%B8%80%E5%A4%A9%EF%BC%89/" title="c#上位机开发自学（c#基础认识第一天）">http://example.com/2024/08/28/c-%E4%B8%8A%E4%BD%8D%E6%9C%BA%E5%BC%80%E5%8F%91%E8%87%AA%E5%AD%A6%EF%BC%88%E7%AC%AC%E4%B8%80%E5%A4%A9%EF%BC%89/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><span class="icon iconify" data-icon="ri:creative-commons-line"></span><span class="icon iconify" data-icon="ri:creative-commons-by-line"></span><span class="icon iconify" data-icon="ri:creative-commons-nc-line"></span><span class="icon iconify" data-icon="ri:creative-commons-sa-line"></span></a> 许可协议。</li></ul></article><div class="post-nav"><div class="post-nav-item"></div><div class="post-nav-item"><a class="post-nav-next" href="/2024/08/26/Linux%E8%BF%90%E7%BB%B4%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" rel="next" title="Linux运维常用命令"><span class="post-nav-text">Linux运维常用命令</span><span class="icon iconify" data-icon="ri:arrow-right-s-line"></span></a></div></div></div><div class="hty-card" id="comment"></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">桂ICP备2024039154号-2</a></div><div class="copyright"><span>&copy; 2019 – 2024 </span><span class="with-love" id="animate"><span class="icon iconify" data-icon="ri:cloud-line"></span></span><span class="author"> 散人</span></div><div class="powered"><span>由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v7.3.0</span><span class="footer-separator">|</span><span>主题 - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.10.11</span></div><div class="live-time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+  setTimeout(blog_live_time, 1000);
+  const start = new Date('2024-08-22T00:00:00');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = ` ${passDay} 天 ${passHour} 小时 ${passMinute} 分 ${passSecond} 秒`;
+}
+blog_live_time();
+</script></div></footer></div><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><span class="icon iconify" data-icon="ri:arrow-up-s-line"></span><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><script src="https://fastly.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script><script>const images = [...document.querySelectorAll('.markdown-body img')]
+mediumZoom(images)</script><style>.medium-zoom-image {
+  z-index: 99;
+}</style></body></html>
